@@ -1,0 +1,43 @@
+html 
+{
+   margin: 0px;
+   height: 100%;
+   width: 100%;
+}
+
+body 
+{
+   margin: 0px;
+   min-height: 100%;
+   width: 100%;
+   overflow-x: hidden;
+}
+
+.innerContainer
+{
+    text-align: center;
+    z-index: 2;
+    margin-top: 40vh;
+    height: auto;
+  
+    background: radial-gradient(closest-side, rgba(255,255,255,1) 30%, rgba(255,255,255,0));
+}
+
+.innerContainer h1
+{
+    vertical-align: middle;
+    font-weight: 500;
+    font-size: 80px;
+    line-height: 65px;
+    margin: 0;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
