@@ -1,98 +1,81 @@
-var blur = new PIXI.filters.BlurFilter();
+var points = [];
+var pointsNumber = 120;
+var maxDist = 120;
+
+$(document).ready(function(){
+    initPixi();
+});
+
 function initPixi()
 {
-    var app = new PIXI.Application(document.body.clientWidth, document.body.clientHeight, { transparent: true });
+    var app = new PIXI.Application(document.body.clientWidth, document.body.clientHeight, { backgroundColor: 0x30316b, antialias: true });
     $("#containerBackground")[0].appendChild(app.view);
-    var stage = app.stage;
-  
-    PIXI.loader.add("t1", "../imgs/code.png");
-    PIXI.loader.add("t2", "../imgs/bg.png");
-    PIXI.loader.load(setup);
-  
-    var brush = new PIXI.Graphics();
-    brush.beginFill(0xffffff);
-    brush.drawCircle(0, 0, 50);
-    brush.endFill();
-  
-    blur.blur = 1;
-    code.filters = [blur]
-  
-    var nd = $("#nameContainer")[0],
-        nameRect = { x: nd.offsetLeft + 200, y: nd.offsetTop + 50, width: nd.clientWidth - 200, height: nd.clientHeight - 50 },
-        maxDist = Math.hypot(nameRect.x, nameRect.y);
-  
-    app.ticker.add
-    (
-      function()  
-      {
-         var mouse = app.renderer.plugins.interaction.mouse.global;
-         
-         if (!inside(mouse, nameRect))
-         {
-            var distX = (mouse.x > nameRect.x + nameRect.width  ? mouse.x - nameRect.x - nameRect.width  : (mouse.x < nameRect.x ? nameRect.x - mouse.x : 0)),
-                distY = (mouse.y > nameRect.y + nameRect.height ? mouse.y - nameRect.y - nameRect.height : (mouse.y < nameRect.y ? nameRect.y - mouse.y : 0)),
-                dist = Math.hypot(distX, distY);
-           
-            blur.blur = 10 - dist * 10 / maxDist;
-         }
-      }
-    );
-  
-    function setup(loader, resources) 
-    {
-      //Imagem de fundo
-      var background = new PIXI.Sprite(resources["t1"].texture);
-      var container = new PIXI.Container();
-      container.addChild(background);
-      stage.addChild(container);
+    
+    for (let n = 0; n < pointsNumber; n++)
+        points.push(new Point(Math.random() * document.body.clientWidth, Math.random() * document.body.clientHeight, Math.random() * 3 + 5, Math.random() * 2 * Math.PI, Math.random() * 2 + 1));
+        
+    var g = new PIXI.Graphics();
+    app.stage.addChild(g);
+    
+    app.ticker.add(function() {
+        g.clear();
+        g.beginFill(0x3745ab, 1);
+        
+        for (var n = 0; n < points.length; n++)
+        {
+            points[n].update(document.body.clientWidth, document.body.clientHeight);
+            
+            for(var i = 0; i < points.length; i++)
+            {
+                var dist = points[n].distance(points[i]);
+                if (dist < maxDist)
+                {
+                    g.lineStyle(2, 0x2248d0, 1 - dist / maxDist);
+                    g.moveTo(points[n].x, points[n].y);
+                    g.lineTo(points[i].x, points[i].y);
+                }
+            }    
+        }
+        
+        for (var n = 0; n < points.length; n++)
+        {
+            g.lineStyle(0, 0x000, 1);
+            g.drawCircle(points[n].x, points[n].y, points[n].radius);
+        }
 
-      background.scale.x = document.body.clientWidth / background.width;
-      background.scale.y = document.body.clientHeight / background.height;
-      
-      //Imagem que vai ser revelada
-      var imageToReveal = new PIXI.Sprite(resources["t2"].texture);
-      var container2 = new PIXI.Container();
-      container2.addChild(imageToReveal);
-      stage.addChild(container2);
-      
-      imageToReveal.scale.x = document.body.clientWidth / imageToReveal.width;
-      imageToReveal.scale.y = document.body.clientHeight / imageToReveal.height;
-      
-      var renderTexture = PIXI.RenderTexture.create(app.screen.width, app.screen.height);
-      var renderTextureSprite = new PIXI.Sprite(renderTexture);
-      stage.addChild(renderTextureSprite);
-      imageToReveal.mask = renderTextureSprite;
-
-      app.stage.interactive = true;
-      app.stage.on('pointerdown', pointerDown);
-      app.stage.on('pointerup', pointerUp);
-      app.stage.on('pointermove', pointerMove);
-
-      var dragging = false;
-
-      function pointerMove(event) 
-      {
-          if (dragging) 
-          {
-              brush.position.copy(event.data.global);
-              app.renderer.render(brush, renderTexture, false, null, false);
-          }
-      }
-
-      function pointerDown(event) 
-      {
-          dragging = true;
-          pointerMove(event);
-      }
-
-      function pointerUp(event) 
-      {
-          dragging = false;
-      }
-    }
+        g.endFill();
+    });
 }
 
-function inside (m, r)
+function Point(x, y, radius, angle, speed)
 {
-  return !(m.x < r.x || m.x > r.x + r.width || m.y < r.y || m.y > r.y + r.height);
+    this.x = x;
+    this.y = y;
+    this.moduleX = Math.cos(angle) * speed;
+    this.moduleY = Math.sin(angle) * speed;
+    this.radius = radius;
+    
+    this.update = (maxX, maxY) =>
+    {
+        if (this.x + this.radius * 2 < 0)
+            this.x = maxX;
+        else if (this.x > maxX)
+            this.x = 0;
+        
+        if (this.y + this.radius * 2 < 0)
+            this.y = maxY;
+        else if (this.y > maxY)
+            this.y = 0;
+        
+        this.x += this.moduleX;
+        this.y += this.moduleY;
+    }
+    
+    this.distance = (other) =>
+    {
+        var cat1 = other.x - this.x,
+            cat2 = other.y - this.y;
+        
+        return Math.hypot(cat1, cat2);
+    }
 }
