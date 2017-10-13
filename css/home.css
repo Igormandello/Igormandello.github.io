@@ -6,13 +6,20 @@
 
 html 
 {
-   margin: 0px;
+    margin: 0px;
 }
 
 body 
 {
-   margin: 0px;
-   overflow-x: hidden;
+    margin: 0px;
+    overflow-x: hidden;
+    color: white;
+}
+
+.modal
+{
+    color: black;
+    font-size: 1.2em;
 }
 
 .header
@@ -31,41 +38,64 @@ body
     z-index: 2;
     margin-top: calc(50vh - 50px);
     height: 100vh;
+    width: 100vw;
+}
+
+@media (max-width: 550px)
+{
+    .innerContainer
+    {
+        margin-top: calc(50vh - 100px);
+    }
 }
 
 .innerContainer h1
 {
     vertical-align: middle;
-    font-size: 112px;
+    font-size: 9.8em;
     line-height: 100px;
     margin: 0;
-    color: white;
+}
+
+@media (max-width: 767px)
+{
+    .innerContainer h1
+    {
+        vertical-align: middle;
+        font-size: 5.8em;
+        line-height: 100px;
+        margin: 0;
+    }
 }
 
 .aboutMe
 {
-    height: 100vh;
+    min-height: 100vh;
     padding-top: 40px;
     background-color: #042c62;
 }
 
-.aboutMe div
-{
-    color: white;
-    font-size: 2.5em;
-    opacity: 0;
-}
-
 .projects
 {
-    height: 100vh;
+    min-height: 100vh;
     background-color: #03396c;
 }
 
 .contact
 {
-    height: 100vh;
     background-color: #005b96;
+    font-size: 6em;
+}
+
+.contact div img
+{
+    max-height: 40vh;
+}
+
+.contact div
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .container-fluid

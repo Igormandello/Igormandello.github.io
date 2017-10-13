@@ -2,6 +2,7 @@ function initPixi()
 {
     var header = $('.header');
     app = new PIXI.Application(header.width(), header.height(), { backgroundColor: colors.background, antialias: true });
+    app.view.style['touch-action'] = 'auto';
     $("#containerBackground")[0].appendChild(app.view);
     
     for (let n = 0; n < pointsNumber; n++)
