@@ -133,6 +133,14 @@ h1
     max-height: 40vh;
 }
 
+.credits
+{
+    padding: 20px;
+    background-color: #021631;
+    font-size: 1.2em;
+    text-align: center;
+}
+
 .container-fluid
 {
     padding-top: 100vh;
