@@ -15,7 +15,7 @@ var app;
 var g = new PIXI.Graphics();
 
 var points = [];
-var pointsNumber = 120;
+var pointsNumber = (innerWidth > 768 ? 120 : 40);
 var maxDist = 120;
 
 $(document).ready(function(){

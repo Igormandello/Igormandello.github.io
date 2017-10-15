@@ -17,6 +17,18 @@ body
     color: white;
 }
 
+h1
+{
+    font-size: 5em;
+}
+
+.verticalHelper
+{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
 .modal
 {
     color: black;
@@ -58,7 +70,7 @@ body
     margin: 0;
 }
 
-@media (max-width: 768px)
+@media (max-width: 909px)
 {
     .innerContainer h1
     {
@@ -68,32 +80,41 @@ body
 
 .aboutMe
 {
-    min-height: 100vh;
-    padding-top: 40px;
     background-color: #042c62;
+    padding: 25px 50px;
+}
+
+.aboutMe .content
+{
+    padding-top: 20px;
+    font-size: 1.6em;
+    display: flex;
+}
+
+.aboutMe .content div
+{
+    min-height: 100%;
+    vertical-align: middle;
+    margin: 20px 0 20px 0;
 }
 
 .projects
 {
-    min-height: 100vh;
     background-color: #03396c;
+    padding: 25px 50px;
 }
 
 .contact
 {
     background-color: #005b96;
-    font-size: 5em;
+    padding: 25px 50px;
 }
+
 
 .contact div img
 {
     max-height: 40vh;
-}
-
-.contact div
-{
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 80px;
 }
 
 .container-fluid
