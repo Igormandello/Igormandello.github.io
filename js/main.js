@@ -22,6 +22,7 @@ $(document).ready(function(){
     initPixi();
     initSections();
     
+    $('[data-toggle="popover"]').popover(); 
     window.onresize = () => resizePixi()
     
     var sm = new ScrollManager();
