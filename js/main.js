@@ -26,9 +26,10 @@ $(document).ready(function(){
     window.onresize = () => resizePixi()
     
     var sm = new ScrollManager();
-    ScrollManager.offsetTop = 0.35;
+    ScrollManager.offsetTop = 0.65;
     
     sm.addReturnableSection('.header', toggleAnimation);
+    sm.addSection('.aboutMe', showAboutMe);
     sm.addSection('.contact', showContacts);
   
     sm.scrollCheck();
@@ -36,8 +37,22 @@ $(document).ready(function(){
 
 function initSections()
 {
+    //AboutMe screen
+    TweenMax.set(".aboutMe .content div:eq(0)", { x: -750, opacity: 0 });
+    TweenMax.set(".aboutMe .content div:eq(1)", { y: 300, opacity: 0 });
+    TweenMax.set(".aboutMe .content div:eq(2)", { x: 750, opacity: 0 });
+    
+    //Projects screen
+    //code
+    
+    //Contact screen
     TweenMax.set(".contact div:eq(0)", { x: -500, y: -800, opacity: 0 });
     TweenMax.set(".contact div:eq(2) div", { x: 500, opacity: 0 });
+}
+
+function showAboutMe()
+{
+    TweenMax.staggerTo(".aboutMe .content div", 0.8, { x: 0, y: 0, opacity: 1 }, 0.4);
 }
 
 function showContacts()

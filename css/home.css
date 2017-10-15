@@ -87,7 +87,7 @@ h1
 .aboutMe
 {
     background-color: #042c62;
-    padding: 25px 50px;
+    padding: 25px 30px;
 }
 
 .aboutMe .content
@@ -114,18 +114,24 @@ h1
 .projects
 {
     background-color: #03396c;
-    padding: 25px 50px;
+    padding: 25px 30px;
 }
 
 .contact
 {
     background-color: #005b96;
-    padding: 25px 50px;
+    padding: 25px 30px;
 }
 
 .contact .row
 {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
+}
+
+.contact .row .col-sm-2
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .contact div img
