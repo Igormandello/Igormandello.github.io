@@ -20,6 +20,32 @@ body
 h1
 {
     font-size: 5em;
+    text-align: center;
+}
+
+.underlined:after
+{
+    display: block;
+    background-color: #FFF;
+    content: "";
+    width: 50%;
+    margin: 15px auto;
+    height: 2px;
+    border-radius: 45%;
+}
+
+@media (max-width: 550px)
+{
+    .underlined:after
+    {
+        display: block;
+        background-color: #FFF;
+        content: "";
+        width: 100%;
+        margin: 15px auto;
+        height: 2px;
+        border-radius: 45%;
+    }
 }
 
 .verticalHelper

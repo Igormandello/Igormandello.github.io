@@ -46,7 +46,6 @@ function initSections()
     //code
     
     //Contact screen
-    TweenMax.set(".contact div:eq(0)", { x: -500, y: -800, opacity: 0 });
     TweenMax.set(".contact div:eq(2) div", { x: 500, opacity: 0 });
 }
 
@@ -57,7 +56,6 @@ function showAboutMe()
 
 function showContacts()
 {
-    TweenMax.to(".contact div:eq(0)", 0.8, { x: 0, y: 0, opacity: 1 });
     TweenMax.staggerTo(".contact div:eq(2) div", 0.5, { x: 0, opacity: 1 }, 0.4);
 }
 
