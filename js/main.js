@@ -18,12 +18,17 @@ var points = [];
 var pointsNumber = (innerWidth > 768 ? 120 : 40);
 var maxDist = 120;
 
+var changeAge, ageReps = 0, age;
+
 $(document).ready(function(){
     initPixi();
     initSections();
     
     $('[data-toggle="popover"]').popover(); 
     window.onresize = () => resizePixi()
+    
+    let ageDate = new Date(Date.now() - new Date(2001, 1, 17).getTime());
+    age = Math.abs(ageDate.getUTCFullYear() - 1970);
     
     var sm = new ScrollManager();
     ScrollManager.offsetTop = 0.65;
@@ -52,6 +57,36 @@ function initSections()
 function showAboutMe()
 {
     TweenMax.staggerTo(".aboutMe .content div", 0.8, { x: 0, y: 0, opacity: 1 }, 0.4);
+    
+    setTimeout(function (){ changeAge = setInterval(changeAgeText, 750)}, 1500);
+}
+
+function changeAgeText()
+{
+    if (ageReps < 3)
+    {
+        let fakeAge = 0;
+        
+        switch(ageReps)
+        {
+            case 0: fakeAge = Math.floor(Math.random() * (age - 1) + 1);
+                    break;
+                
+            case 1: fakeAge = Math.floor(Math.random() * (70 - age) + age + 30);
+                    break;
+                
+            case 2: fakeAge = Math.floor(Math.random() * (70 - 2 * age) + age);
+                    break;
+        }
+        
+        ageReps++;
+        $("#age").text(fakeAge);
+    }
+    else
+    {
+        clearInterval(changeAge);
+        $("#age").text(age);
+    }
 }
 
 function showContacts()
