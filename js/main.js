@@ -31,7 +31,7 @@ $(document).ready(function(){
     age = Math.abs(ageDate.getUTCFullYear() - 1970);
     
     var sm = new ScrollManager();
-    ScrollManager.offsetTop = 0.65;
+    ScrollManager.offsetTop = 0.5;
     
     sm.addReturnableSection('.header', toggleAnimation);
     sm.addSection('.aboutMe', showAboutMe);
