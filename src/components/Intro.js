@@ -31,6 +31,8 @@ class Intro extends Component {
         
     this.app.stage.addChild(this.g);
     this.app.ticker.add(this.drawPoints);
+
+    window.addEventListener('resize', this.updateDimensions);
 	}
 
 	drawPoints = (delta) => {
@@ -56,7 +58,16 @@ class Intro extends Component {
     }
 
     this.g.endFill();
-	}
+  }
+  
+  updateDimensions = () => {
+    this.points = [];
+    
+    this.refs['introBackground'].removeChild(this.app.view);
+    
+    this.app.ticker.remove(this.drawPoints);
+    this.componentDidMount()
+  }
 
   render() {
     return (

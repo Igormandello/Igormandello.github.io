@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Intro from './components/Intro';
+import './css/Normalize.css';
 
 class App extends Component {
   render() {
