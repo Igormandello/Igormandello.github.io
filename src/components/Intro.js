@@ -71,9 +71,10 @@ class Intro extends Component {
 
   render() {
     return (
-      <div ref="intro" className="intro">
+      <section ref="intro" className="intro">
         <div ref="introBackground" />
-      </div>
+        {this.props.children}
+      </section>
     );
   }
 }
