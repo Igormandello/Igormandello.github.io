@@ -26,7 +26,7 @@ class App extends Component {
           <h1>Igor Mandello</h1>
           <a></a>
         </Intro>
-        <section>
+        <section className="about">
           <h2>Sobre Mim</h2>
           <AboutMeSection image="image.png">
             <p>

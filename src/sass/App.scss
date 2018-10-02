@@ -1,6 +1,25 @@
 $header-height: 60px;
 $logo-size: 100px;
 
+h2, h3, h4 {
+  display: inline-flex;
+  position: relative;
+  padding-right: 10px;
+  padding-bottom: 4px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50%;
+    width: 100%;
+    border: 1px solid black;
+    border-left: none;
+    border-top: none;
+  }
+}
+
 header {
   display: inline-flex;
   justify-content: space-between;
@@ -35,4 +54,17 @@ header {
       margin: 0 10px;
     }
   }
+}
+
+section:not(.intro) {
+  padding: 40px 15%;
+  background-color: white;
+
+  &:nth-child(even) {
+    background-color: #fafafa;
+  }
+}
+
+section.about {
+  margin-top: 100vh;
 }
