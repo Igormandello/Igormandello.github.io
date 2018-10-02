@@ -59,21 +59,22 @@ class App extends Component {
         </section>
         <section>
           <h2>Projetos</h2>
-          <Monitor />
-          <div>
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
-              delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 
-              culpa totam voluptatum voluptate maiores voluptatem nemo nihil 
-              quod neque nostrum expedita nam?
-            </p>
-            <a>
-              <i></i>
-              Veja mais no GitHub
-            </a>
+          <div className="row">
+            <Monitor />
+            <div className="col s6">
+              <h3>Lorem Ipsum</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
+                delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 
+                culpa totam voluptatum voluptate maiores voluptatem nemo nihil 
+                quod neque nostrum expedita nam?
+              </p>
+              <a>
+                <i></i>
+                Veja mais no GitHub
+              </a>
+            </div>
           </div>
-
           <div>
           </div>
         </section>
