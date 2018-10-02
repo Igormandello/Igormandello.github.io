@@ -1,12 +1,13 @@
 import React from 'react';
+import '../css/AboutMeSection.css';
 
 function AboutMeSection(props) {
   return (
-    <div>
-      <div>
+    <div className={'aboutMeSection row' + (props.reverse ? ' reverse' : '')}>
+      <div className="col s6">
         {props.children}
       </div>
-      <div>
+      <div className="col s6">
         <img src={require('./../imgs/' + props.image)} alt=""/>
       </div>
     </div>

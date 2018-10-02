@@ -42,7 +42,7 @@ class App extends Component {
               quod neque nostrum expedita nam?
             </p>
           </AboutMeSection>
-          <AboutMeSection image="image.png">
+          <AboutMeSection image="image.png" reverse>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
               delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 
