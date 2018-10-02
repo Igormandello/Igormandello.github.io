@@ -4,21 +4,23 @@ import AboutMeSection from './components/AboutMeSection';
 import Monitor from './components/Monitor';
 import Input from './components/Input';
 import PopMedia from './components/PopMedia';
-import './css/Normalize.css';
+
+import './css/Materialize.css';
+import './css/App.css';
 
 class App extends Component {
   render() {
     return (
       <div>
         <header>
+          <div>
+            <img src={require('./imgs/logo.png')}/>
+          </div>
           <nav>
             <a>Sobre mim</a>
             <a>Projetos</a>
             <a>Contato</a>
           </nav>
-          <div>
-            <img />
-          </div>
         </header>
         <Intro points={100} maxDist={120}>
           <h1>Igor Mandello</h1>

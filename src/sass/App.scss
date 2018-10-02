@@ -1,0 +1,38 @@
+$header-height: 60px;
+$logo-size: 100px;
+
+header {
+  display: inline-flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: $header-height;
+  background-color: transparentize($color: white, $amount: 0.15);
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $logo-size + 20px;
+    height: $logo-size + 20px;
+    transform: translateX(calc(50vw - #{$logo-size / 2} - 10px));
+    border-top: calc(#{$logo-size + 20} / 2) solid transparent;
+    border-bottom: calc(#{$logo-size + 20} / 2) solid transparentize($color: white, $amount: 0.15);
+    border-radius: 100%;
+
+    img {
+      width: $logo-size;
+      height: $logo-size;
+    }
+  }
+
+  nav {
+    a {
+      height: $header-height;
+      line-height: $header-height;
+      padding: 6px;
+      margin: 0 10px;
+    }
+  }
+}
