@@ -57,7 +57,7 @@ class App extends Component {
             </p>
           </AboutMeSection>
         </section>
-        <section>
+        <section className="projects">
           <h2>Projetos</h2>
           <div className="row">
             <Monitor />
@@ -69,7 +69,7 @@ class App extends Component {
                 culpa totam voluptatum voluptate maiores voluptatem nemo nihil 
                 quod neque nostrum expedita nam?
               </p>
-              <a>
+              <a className="button">
                 <i></i>
                 Veja mais no GitHub
               </a>
@@ -78,25 +78,25 @@ class App extends Component {
           <div>
           </div>
         </section>
-        <section>
+        <section className="contact">
           <h2>Contato</h2>
-          <div>
-            <div>
-              <Input />
-              <Input />
-            </div>
-            <Input />
-            <Input />
+          <div className="row">
+            <div className="col s6">
+              <Input label="Nome" className="col s6"/>
+              <Input label="Sobrenome" className="col s6"/>
+              <Input label="E-mail" type="email" className="col s12"/>
+              <Input label="Mensagem" type="textarea" className="col s12"/>
 
-            <a>
-              Enviar
-            </a>
-          </div>
-          <div>
-            <PopMedia />
-            <PopMedia />
-            <PopMedia />
-            <PopMedia />
+              <a className="button">
+                Enviar
+              </a>
+            </div>
+            <div className="col s6">
+              <PopMedia />
+              <PopMedia />
+              <PopMedia />
+              <PopMedia />
+            </div>
           </div>
         </section>
         <footer>

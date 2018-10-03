@@ -1,3 +1,5 @@
+@import './consts';
+
 $header-height: 60px;
 $logo-size: 100px;
 
@@ -21,6 +23,27 @@ h2, h3, h4 {
   }
 }
 
+h2 {
+  margin-bottom: 20px;
+}
+
+a.button {
+  display: inline-flex;
+  align-items: center;
+  border: 3px solid $blue-1;
+  border-radius: 25px;
+  height: 50px;
+  padding: 0 25px;
+  color: $blue-1;
+  cursor: pointer;
+  transition: background-color 0.4s, color 0.4s;
+
+  &:hover {
+    background-color: $blue-1;
+    color: white;
+  }
+}
+
 header {
   display: inline-flex;
   justify-content: space-between;
@@ -29,6 +52,7 @@ header {
   width: 100%;
   height: $header-height;
   background-color: transparentize($color: white, $amount: 0.15);
+  z-index: 100;
 
   div {
     display: flex;
@@ -68,4 +92,20 @@ section:not(.intro) {
 
 section.about {
   margin-top: 100vh;
+}
+
+section.contact {
+  & > div {
+    flex: 1;
+  }
+}
+
+footer {
+  display: flex;
+  height: 60px;
+  background-color: $blue-3;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
