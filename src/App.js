@@ -24,9 +24,14 @@ class App extends Component {
         </header>
         <Intro points={100} maxDist={120}>
           <h1>Igor Mandello</h1>
-          <a></a>
+          <a href="#about">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <line x1="0" y1="0" x2="50%" y2="100%"/>
+              <line x1="50%" y1="100%" x2="100%" y2="0"/>
+            </svg>
+          </a>
         </Intro>
-        <section className="about">
+        <section id="about" className="about">
           <h2>Sobre Mim</h2>
           <AboutMeSection image="image.png">
             <p>
