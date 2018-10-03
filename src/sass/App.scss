@@ -58,6 +58,7 @@ header {
   height: $header-height;
   background-color: transparentize($color: white, $amount: 0.15);
   z-index: 100;
+  transition: background-color 0.4s;
 
   div {
     display: flex;
@@ -69,19 +70,41 @@ header {
     border-top: calc(#{$logo-size + 20} / 2) solid transparent;
     border-bottom: calc(#{$logo-size + 20} / 2) solid transparentize($color: white, $amount: 0.15);
     border-radius: 100%;
+    transition: transform 0.4s ease 0.4s, height 0.4s, width 0.4s, border-bottom 0.4s;
 
     img {
       width: $logo-size;
       height: $logo-size;
+      transition: height 0.4s, width 0.4s;
     }
   }
 
-  nav {
-    a {
+  nav a {
+    height: $header-height;
+    line-height: $header-height;
+    padding: 6px;
+    margin: 0 10px;
+    color: #252525;
+    transition: color 0.4s;
+  }
+
+  &.inverse {
+    background-color: transparentize($color: black, $amount: 0.30);
+
+    div {
+      width: $header-height - 20px;
       height: $header-height;
-      line-height: $header-height;
-      padding: 6px;
-      margin: 0 10px;
+      transform: translateX(10px);
+      border: none;
+  
+      img {
+        width: $header-height - 20px;
+        height: $header-height - 20px;
+      }
+    }
+
+    nav a {
+      color: white;
     }
   }
 }
