@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ScrollManager from '@igormandello/scroll-trigger';
 import Intro from './components/Intro';
 import AboutMeSection from './components/AboutMeSection';
 import Monitor from './components/Monitor';
@@ -9,6 +10,16 @@ import './css/Materialize.css';
 import './css/App.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.sm = new ScrollManager();
+    ScrollManager.offsetTop = 1;
+
+    let header = document.querySelector('header');
+    this.sm.addReturnableSection('.intro', (activated) => {
+      header.classList.toggle('inverse');
+    });
+  }
+
   render() {
     return (
       <div>
