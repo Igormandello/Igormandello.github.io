@@ -35,10 +35,25 @@ class App extends Component {
     });
 
     this.circles = document.querySelectorAll('.pagination .circle');
-    this.refs.monitor.setActive(0);
+    this.circles.forEach((circle, i) => circle.addEventListener('click', () => {
+      this.setState((prev) => {
+        this.circles[prev.actualProject].classList.remove('active');
+        this.circles[i].classList.add('active');
+        this.refs.monitor.setActive(i);
+  
+        return {
+          actualProject: i
+        }
+      });
+    }));
+
+    this.slideNext();
   }
 
   prevProject = () => {
+    clearTimeout(this.timeout);
+    this.slideNext();
+    
     let project = this.state.actualProject - 1;
     if (project < 0)
       project = projects.length - 1;
@@ -55,6 +70,9 @@ class App extends Component {
   }
 
   nextProject = () => {
+    clearTimeout(this.timeout);
+    this.slideNext();
+
     let project = this.state.actualProject + 1;
     if (project >= projects.length)
       project = 0;
@@ -68,6 +86,12 @@ class App extends Component {
         actualProject: project
       }
     });
+  }
+
+  slideNext = () => {
+    this.timeout = setTimeout(() => {
+      this.nextProject();
+    }, 5000);
   }
 
   render() {
@@ -179,23 +203,23 @@ class App extends Component {
 
 const projects = [
   {
-    name: 'Lorem 1',
+    name: 'Spotted Cotuca',
+    desc: `Uma plataforma no estilo "correio elegante", onde você pode mandar
+      mensagens anônimas para quem você quiser! A aplicação possui integração
+      com o Facebook e o Twitter, e as mensagens, quando aprovadas por algum
+      administrador, são automaticamente postadas nessas duas plataformas.`,
+    link: 'https://github.com/Igormandello/spotted-cotuca',
+    image: 'spotted.png'
+  }, {
+    name: 'Vocare',
     desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
       delectus earum quaerat? Doloribus, obcaecati quo illo mollitia culpa 
       totam voluptatum voluptate maiores voluptatem nemo nihil quod neque 
       nostrum expedita nam?`,
-    link: 'https://google.com',
-    image: 'project1.png'
+    link: 'https://github.com/Igormandello/vocare',
+    image: 'vocare.png'
   }, {
-    name: 'Lorem 2',
-    desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
-      delectus earum quaerat? Doloribus, obcaecati quo illo mollitia culpa 
-      totam voluptatum voluptate maiores voluptatem nemo nihil quod neque 
-      nostrum expedita nam?`,
-    link: 'https://google.com',
-    image: 'project2.png'
-  }, {
-    name: 'Lorem 3',
+    name: 'Sine',
     desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
       delectus earum quaerat? Doloribus, obcaecati quo illo mollitia culpa 
       totam voluptatum voluptate maiores voluptatem nemo nihil quod neque 
