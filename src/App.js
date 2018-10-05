@@ -34,18 +34,6 @@ class App extends Component {
       }, 400);
     });
 
-    let labels = document.querySelectorAll('.input-field label');
-    let inputs = document.querySelectorAll('.input-field input, .input-field textarea');
-    for (let i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('click', () => {
-        labels[i].classList.add('active');
-      });
-
-      inputs[i].addEventListener('blur', () => {
-        labels[i].classList.remove('active');
-      });
-    }
-
     this.circles = document.querySelectorAll('.pagination .circle');
     this.refs.monitor.setActive(0);
   }
