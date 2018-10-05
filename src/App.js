@@ -10,6 +10,10 @@ import './css/Materialize.css';
 import './css/App.css';
 
 class App extends Component {
+  state = {
+    actualProject: 0
+  }
+
   componentDidMount() {
     this.sm = new ScrollManager();
     ScrollManager.offsetTop = 0.3;
@@ -41,6 +45,41 @@ class App extends Component {
         labels[i].classList.remove('active');
       });
     }
+
+    this.circles = document.querySelectorAll('.pagination .circle');
+    this.refs.monitor.setActive(0);
+  }
+
+  prevProject = () => {
+    let project = this.state.actualProject - 1;
+    if (project < 0)
+      project = projects.length - 1;
+
+    this.circles[this.state.actualProject].classList.remove('active');
+    this.circles[project].classList.add('active');
+    this.refs.monitor.setActive(project);
+
+    this.setState(() => {
+      return {
+        actualProject: project
+      }
+    });
+  }
+
+  nextProject = () => {
+    let project = this.state.actualProject + 1;
+    if (project >= projects.length)
+      project = 0;
+
+    this.circles[this.state.actualProject].classList.remove('active');
+    this.circles[project].classList.add('active');
+    this.refs.monitor.setActive(project);
+
+    this.setState(() => {
+      return {
+        actualProject: project
+      }
+    });
   }
 
   render() {
@@ -99,25 +138,24 @@ class App extends Component {
         <section className="projects">
           <h2>Projetos</h2>
           <div className="row">
-            <Monitor />
+            <Monitor ref="monitor" images={projects.map(p => p.image)}/>
             <div className="col m6 s12">
-              <h3>Lorem Ipsum</h3>
+              <h3>{projects[this.state.actualProject].name}</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
-                delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 
-                culpa totam voluptatum voluptate maiores voluptatem nemo nihil 
-                quod neque nostrum expedita nam?
+                {projects[this.state.actualProject].desc}
               </p>
-              <a className="button">
+              <a className="button" href={projects[this.state.actualProject].link} target="_blank">
                 <img src={require('./components/assets/github.svg')} alt=""/>
                 Veja mais no GitHub
               </a>
             </div>
           </div>
           <div className="pagination">
-            <span className="active"/>
-            <span />
-            <span />
+            <span onClick={this.prevProject} className="before" />
+            <span className="circle active"/>
+            <span className="circle"/>
+            <span className="circle"/>
+            <span onClick={this.nextProject} className="after" />
           </div>
         </section>
         <section className="contact">
@@ -148,6 +186,25 @@ class App extends Component {
     );
   }
 }
+
+const projects = [
+  {
+    name: 'Lorem 1',
+    desc: 'lorem ipsum dolor sit amet',
+    link: 'https://google.com',
+    image: 'project1.png'
+  }, {
+    name: 'Lorem 2',
+    desc: 'lorem ipsum dolor sit amet',
+    link: 'https://google.com',
+    image: 'project2.png'
+  }, {
+    name: 'Lorem 3',
+    desc: 'lorem ipsum dolor sit amet',
+    link: 'https://google.com',
+    image: 'project3.png'
+  }
+]
 
 const socialMedias = {
   github: {

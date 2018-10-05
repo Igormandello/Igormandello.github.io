@@ -69,29 +69,33 @@ a.button {
 
   span {
     display: inline-flex;
-    border-radius: 100%;
-    width: 12px;
     height: 12px;
+    width: 12px;
     margin: 0 4px;
-    background-color: $blue-1;
+    transition: background-color 0.4s, filter 0.4s;
 
-    &.active {
-      background-color: $blue-2;
+    &.before, &.after {
+      background-image: url('../imgs/arrow.svg');
+      background-size: 12px;
+      cursor: pointer;
+
+      &:hover {
+        filter: brightness(1.2);
+      }
     }
-  }
-
-  &::before, &::after {
-    content: "";
-    height: 12px;
-    width: 12px;
-    background-image: url('../imgs/arrow.svg');
-    background-size: 12px;
-    margin: 0 4px;
-    cursor: pointer;
-  }
-
-  &::before {
-    transform: rotateZ(180deg); 
+  
+    &.before {
+      transform: rotateZ(180deg); 
+    }
+  
+    &.circle {
+      border-radius: 100%;
+      background-color: $blue-1;
+  
+      &.active {
+        background-color: $blue-2;
+      }
+    }
   }
 }
 

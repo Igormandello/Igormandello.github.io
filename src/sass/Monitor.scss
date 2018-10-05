@@ -8,10 +8,21 @@
 
     & > div {
       position: absolute;
-      width: calc(100% - 20px);
-      padding-bottom: calc(56.25% - 22px);
+      display: inline-flex;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       background-color: white;
       margin: 10px;
+      overflow: hidden;
+
+      img {
+        min-width: 100%;
+        height: 100%;
+        transform: translate(0);
+        transition: transform 0.4s;
+      }
     }
   }
 
