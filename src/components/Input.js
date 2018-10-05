@@ -12,7 +12,7 @@ function Input(props) {
   return (
     <div className={'input-field' + (props.className ? ' ' + props.className : '')}>
       {input}
-      <label for={props.id}>{props.label}</label>
+      <label htmlFor={props.id}>{props.label}</label>
     </div>
   );
 }

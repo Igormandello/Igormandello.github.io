@@ -50,7 +50,7 @@ $image-size: 60px;
     span {
       display: block; 
       line-height: ($image-size - 12px) / 2;
-      font-size: (($image-size - 12px) / 2) - 6px;
+      font-size: (($image-size - 12px) / 2) - 8px;
       color: white;
 
       &.title {
@@ -83,13 +83,13 @@ $image-size: 60px;
   
     & > div:last-child {
       width: 100%;
-      padding: 6px $image-size / 2 6px $image-size + 6px;
+      padding: 6px $image-size / 2 - 10px 6px $image-size + 6px;
       opacity: 1;
     }
   
     &.right {
       & > div:last-child {
-        padding: 6px $image-size + 6px 6px $image-size / 2;
+        padding: 6px $image-size + 6px 6px $image-size / 2 - 10px;
       }
     }
   }

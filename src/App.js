@@ -25,7 +25,7 @@ class App extends Component {
       <div>
         <header>
           <div>
-            <img src={require('./imgs/logo.png')}/>
+            <img src={require('./imgs/logo.png')} alt="logo"/>
           </div>
           <nav>
             <a>Sobre mim</a>
@@ -97,17 +97,17 @@ class App extends Component {
         <section className="contact">
           <h2>Contato</h2>
           <div className="row">
-            <div className="col l7 m12">
-              <Input label="Nome" className="col s12 m6"/>
-              <Input label="Sobrenome" className="col s12 m6"/>
-              <Input label="E-mail" type="email" className="col s12"/>
-              <Input label="Mensagem" type="textarea" className="col s12"/>
+            <div className="col l6 m12">
+              <Input label="Nome" className="col s12 m6" id="name"/>
+              <Input label="Sobrenome" className="col s12 m6" id="lastname"/>
+              <Input label="E-mail" type="email" className="col s12" id="email"/>
+              <Input label="Mensagem" type="textarea" className="col s12" id="message"/>
 
               <a className="button">
                 Enviar
               </a>
             </div>
-            <div className="col l5 s12">
+            <div className="col l6 s12">
               <div className="row">
                 <PopMedia {...socialMedias.github}/>
                 <PopMedia {...socialMedias.linkedin} right/>
@@ -130,22 +130,22 @@ class App extends Component {
 const socialMedias = {
   github: {
     media: 'GitHub',
-    link: 'aaa',
+    link: '/Igormandello',
   },
 
   linkedin: {
     media: 'LinkedIn',
-    link: 'aaa',
+    link: '/igormandello',
   },
 
   facebook: {
     media: 'Facebook',
-    link: 'aaa'
+    link: '/igor.mandello'
   },
 
   email: {
     media: 'Email',
-    link: 'aaa'
+    link: 'igormandello@gmail.com'
   }
 }
 

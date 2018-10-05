@@ -6,7 +6,7 @@ function Monitor(props) {
     <div className="monitor col m6 s12">
       <div>
         <div>
-          <img />
+          <img alt=""/>
         </div>
       </div>
       <div></div>
