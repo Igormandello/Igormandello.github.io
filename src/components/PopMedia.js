@@ -2,18 +2,14 @@ import React, { Component } from 'react';
 import '../css/PopMedia.css';
 
 class PopMedia extends Component {
-  openMedia(event) {
-    let target = event.target
-    if (event.target.tagName === 'IMG')
-      target = target.parentNode;
-
-    target.parentNode.classList.toggle('active');
+  toggleMedia = () => {
+    this.refs.media.classList.toggle('active');
   }
 
   render() {
     return (
-      <div className={'popMedia col s12' + (this.props.right ? ' right' : '')}>
-        <div onClick={this.openMedia}>
+      <div ref="media" className={'popMedia col s12' + (this.props.right ? ' right' : '')}>
+        <div onClick={this.toggleMedia}>
           <img src={require('./assets/' + this.props.media.toLowerCase() + '.svg')} alt="media"/>
         </div>
         <div>

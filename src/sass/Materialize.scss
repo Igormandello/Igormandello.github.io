@@ -1,1 +1,5 @@
-@import "Materialize/materialize"
+@import './consts';
+$primary-color: $blue-1;
+$secondary-color: $blue-1;
+
+@import "Materialize/materialize";

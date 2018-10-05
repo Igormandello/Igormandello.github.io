@@ -12,12 +12,35 @@ import './css/App.css';
 class App extends Component {
   componentDidMount() {
     this.sm = new ScrollManager();
-    ScrollManager.offsetTop = 1;
+    ScrollManager.offsetTop = 0.3;
 
     let header = document.querySelector('header');
     this.sm.addReturnableSection('.intro', (activated) => {
       header.classList.toggle('inverse');
     });
+
+    this.sm.addSection('.contact > .row > .col:last-child', () => {
+      let i = 0;
+      let interval = setInterval(() => {
+        this.refs['pop' + i].toggleMedia();
+
+        i++;
+        if (i === 4)
+          clearInterval(interval);
+      }, 400);
+    });
+
+    let labels = document.querySelectorAll('.input-field label');
+    let inputs = document.querySelectorAll('.input-field input, .input-field textarea');
+    for (let i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('click', () => {
+        labels[i].classList.add('active');
+      });
+
+      inputs[i].addEventListener('blur', () => {
+        labels[i].classList.remove('active');
+      });
+    }
   }
 
   render() {
@@ -108,10 +131,10 @@ class App extends Component {
               </a>
             </div>
             <div className="col l6 s12">
-              <PopMedia {...socialMedias.github}/>
-              <PopMedia {...socialMedias.linkedin} right/>
-              <PopMedia {...socialMedias.facebook}/>
-              <PopMedia {...socialMedias.email} right/>
+              <PopMedia ref="pop0" {...socialMedias.github}/>
+              <PopMedia ref="pop1" {...socialMedias.linkedin} right/>
+              <PopMedia ref="pop2" {...socialMedias.facebook}/>
+              <PopMedia ref="pop3" {...socialMedias.email} right/>
             </div>
           </div>
         </section>
