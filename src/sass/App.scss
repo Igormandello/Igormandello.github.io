@@ -29,7 +29,7 @@ h2, h3, h4 {
 }
 
 h2 {
-  margin-bottom: 20px;
+  margin: 0 10px 20px 10px;
 }
 
 a.button {
@@ -152,6 +152,23 @@ section.contact {
   & > div {
     flex: 1;
   }
+
+  & > .row {
+    margin-bottom: 0;
+
+    & > .col:first-child {
+      padding-left: 0;
+      margin-bottom: 40px;
+    }
+
+    .row:last-child {
+      margin-bottom: 0;
+
+      .col {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 
 footer {
@@ -162,4 +179,28 @@ footer {
   align-items: center;
   justify-content: center;
   color: white;
+}
+
+.row > .col {
+  & > p:first-child {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .row {
+    margin-bottom: 10px;
+  }
+
+  section:not(.intro) {
+    padding: 30px 5%;
+  }
+
+  .monitor {
+    margin-bottom: 20px;
+  }
+
+  section.contact > .row > .col:first-child {
+    margin-bottom: 40px;
+  }
 }

@@ -3,7 +3,7 @@ import '../css/Monitor.css';
 
 function Monitor(props) {
   return (
-    <div className="monitor col s6">
+    <div className="monitor col m6 s12">
       <div>
         <div>
           <img />

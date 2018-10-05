@@ -77,7 +77,7 @@ class App extends Component {
           <h2>Projetos</h2>
           <div className="row">
             <Monitor />
-            <div className="col s6">
+            <div className="col m6 s12">
               <h3>Lorem Ipsum</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
@@ -97,9 +97,9 @@ class App extends Component {
         <section className="contact">
           <h2>Contato</h2>
           <div className="row">
-            <div className="col s6">
-              <Input label="Nome" className="col s6"/>
-              <Input label="Sobrenome" className="col s6"/>
+            <div className="col l7 m12">
+              <Input label="Nome" className="col s12 m6"/>
+              <Input label="Sobrenome" className="col s12 m6"/>
               <Input label="E-mail" type="email" className="col s12"/>
               <Input label="Mensagem" type="textarea" className="col s12"/>
 
@@ -107,11 +107,15 @@ class App extends Component {
                 Enviar
               </a>
             </div>
-            <div className="col s6">
-              <PopMedia />
-              <PopMedia />
-              <PopMedia />
-              <PopMedia />
+            <div className="col l5 s12">
+              <div className="row">
+                <PopMedia {...socialMedias.github}/>
+                <PopMedia {...socialMedias.linkedin} right/>
+              </div>
+              <div className="row">
+                <PopMedia {...socialMedias.facebook}/>
+                <PopMedia {...socialMedias.email} right/>
+              </div>
             </div>
           </div>
         </section>
@@ -120,6 +124,28 @@ class App extends Component {
         </footer>
       </div>
     );
+  }
+}
+
+const socialMedias = {
+  github: {
+    media: 'GitHub',
+    link: 'aaa',
+  },
+
+  linkedin: {
+    media: 'LinkedIn',
+    link: 'aaa',
+  },
+
+  facebook: {
+    media: 'Facebook',
+    link: 'aaa'
+  },
+
+  email: {
+    media: 'Email',
+    link: 'aaa'
   }
 }
 
