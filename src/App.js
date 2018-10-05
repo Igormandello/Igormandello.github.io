@@ -108,14 +108,10 @@ class App extends Component {
               </a>
             </div>
             <div className="col l6 s12">
-              <div className="row">
-                <PopMedia {...socialMedias.github}/>
-                <PopMedia {...socialMedias.linkedin} right/>
-              </div>
-              <div className="row">
-                <PopMedia {...socialMedias.facebook}/>
-                <PopMedia {...socialMedias.email} right/>
-              </div>
+              <PopMedia {...socialMedias.github}/>
+              <PopMedia {...socialMedias.linkedin} right/>
+              <PopMedia {...socialMedias.facebook}/>
+              <PopMedia {...socialMedias.email} right/>
             </div>
           </div>
         </section>

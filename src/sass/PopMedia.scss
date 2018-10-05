@@ -82,7 +82,7 @@ $image-size: 60px;
     }
   
     & > div:last-child {
-      width: 100%;
+      width: 75%;
       padding: 6px $image-size / 2 - 10px 6px $image-size + 6px;
       opacity: 1;
     }
@@ -92,5 +92,21 @@ $image-size: 60px;
         padding: 6px $image-size + 6px 6px $image-size / 2 - 10px;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .popMedia.active > div:last-child {
+    width: 100%;
+
+    span.smaller {
+      font-size: (($image-size - 12px) / 2) - 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .popMedia.active > div:last-child span.smaller {
+    font-size: (($image-size - 12px) / 2) - 11px;
   }
 }
