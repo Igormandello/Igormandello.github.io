@@ -35,17 +35,63 @@ h2 {
 a.button {
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
   border: 3px solid $blue-1;
   border-radius: 25px;
   height: 50px;
-  padding: 0 25px;
+  padding: 8px 25px;
   color: $blue-1;
   cursor: pointer;
   transition: background-color 0.4s, color 0.4s;
 
+  img {
+    height: 100%;
+    width: auto;
+    margin-right: 10px;
+    transition: filter 0.4s;
+  }
+
   &:hover {
     background-color: $blue-1;
     color: white;
+
+    img {
+      filter: saturate(0) grayscale(1) brightness(3);
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  height: 12px;
+
+  span {
+    display: inline-flex;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    margin: 0 4px;
+    background-color: $blue-1;
+
+    &.active {
+      background-color: $blue-2;
+    }
+  }
+
+  &::before, &::after {
+    content: "";
+    height: 12px;
+    width: 12px;
+    background-image: url('../imgs/arrow.svg');
+    background-size: 12px;
+    margin: 0 4px;
+    cursor: pointer;
+  }
+
+  &::before {
+    transform: rotateZ(180deg); 
   }
 }
 
@@ -59,6 +105,7 @@ header {
   background-color: transparentize($color: white, $amount: 0.15);
   z-index: 100;
   transition: background-color 0.4s;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
 
   div {
     display: flex;

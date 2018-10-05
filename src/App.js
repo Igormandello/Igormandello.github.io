@@ -109,12 +109,15 @@ class App extends Component {
                 quod neque nostrum expedita nam?
               </p>
               <a className="button">
-                <i></i>
+                <img src={require('./components/assets/github.svg')} alt=""/>
                 Veja mais no GitHub
               </a>
             </div>
           </div>
-          <div>
+          <div className="pagination">
+            <span className="active"/>
+            <span />
+            <span />
           </div>
         </section>
         <section className="contact">

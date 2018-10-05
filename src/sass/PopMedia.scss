@@ -31,7 +31,7 @@ $image-size: 60px;
       background-color: $blue-1;
 
       img {
-        filter: brightness(0) invert(1);
+        filter: saturate(0) grayscale(1) brightness(3);
       }
     }
   }
