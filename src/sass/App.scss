@@ -1,4 +1,5 @@
 @import './consts';
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 $header-height: 60px;
 $logo-size: 100px;
@@ -6,6 +7,7 @@ $logo-size: 100px;
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
+  font-family: 'Nunito', sans-serif;
 }
 
 h2, h3, h4 {
@@ -131,12 +133,16 @@ header {
   }
 
   nav a {
-    height: $header-height;
-    line-height: $header-height;
-    padding: 6px;
-    margin: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 18px;
     color: #252525;
-    transition: color 0.4s;
+    transition: color 0.4s, background-color 0.4s;
+
+    &:hover {
+      background-color: transparentize($color: white, $amount: 0.5);
+    }
   }
 
   &.inverse {
@@ -156,6 +162,10 @@ header {
 
     nav a {
       color: white;
+
+      &:hover {
+        background-color: transparentize($color: black, $amount: 0.5);
+      }
     }
   }
 }
@@ -167,7 +177,7 @@ section.intro {
   justify-content: center;
 
   h1 {
-    font-size: 6rem;
+    font-size: 8rem;
     color: white;
   }
 
@@ -239,6 +249,17 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
+  header nav {
+    display: none;
+  }
+
+  section.intro {
+    h1 {
+      font-size: 4rem;
+      text-align: center;
+    }
+  }
+
   .row {
     margin-bottom: 10px;
   }

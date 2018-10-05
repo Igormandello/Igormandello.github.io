@@ -87,15 +87,17 @@ class App extends Component {
       <div>
         <header>
           <div>
-            <img src={require('./imgs/logo.png')} alt="logo"/>
+            <a href="#intro">
+              <img src={require('./imgs/logo.png')} alt="logo"/>
+            </a>
           </div>
           <nav>
-            <a>Sobre mim</a>
-            <a>Projetos</a>
-            <a>Contato</a>
+            <a href="#about">Sobre mim</a>
+            <a href="#projects">Projetos</a>
+            <a href="#contact">Contato</a>
           </nav>
         </header>
-        <Intro points={100} maxDist={120}>
+        <Intro points={window.innerWidth > 768 ? 100 : 40} maxDist={120}>
           <h1>Igor Mandello</h1>
           <a href="#about">
             <svg xmlns="http://www.w3.org/2000/svg">
@@ -135,7 +137,7 @@ class App extends Component {
             </p>
           </AboutMeSection>
         </section>
-        <section className="projects">
+        <section id="projects" className="projects">
           <h2>Projetos</h2>
           <div className="row">
             <Monitor ref="monitor" images={projects.map(p => p.image)}/>
@@ -158,7 +160,7 @@ class App extends Component {
             <span onClick={this.nextProject} className="after" />
           </div>
         </section>
-        <section className="contact">
+        <section id="contact" className="contact">
           <h2>Contato</h2>
           <div className="row">
             <div className="col l6 m12">
@@ -190,17 +192,26 @@ class App extends Component {
 const projects = [
   {
     name: 'Lorem 1',
-    desc: 'lorem ipsum dolor sit amet',
+    desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
+      delectus earum quaerat? Doloribus, obcaecati quo illo mollitia culpa 
+      totam voluptatum voluptate maiores voluptatem nemo nihil quod neque 
+      nostrum expedita nam?`,
     link: 'https://google.com',
     image: 'project1.png'
   }, {
     name: 'Lorem 2',
-    desc: 'lorem ipsum dolor sit amet',
+    desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
+      delectus earum quaerat? Doloribus, obcaecati quo illo mollitia culpa 
+      totam voluptatum voluptate maiores voluptatem nemo nihil quod neque 
+      nostrum expedita nam?`,
     link: 'https://google.com',
     image: 'project2.png'
   }, {
     name: 'Lorem 3',
-    desc: 'lorem ipsum dolor sit amet',
+    desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
+      delectus earum quaerat? Doloribus, obcaecati quo illo mollitia culpa 
+      totam voluptatum voluptate maiores voluptatem nemo nihil quod neque 
+      nostrum expedita nam?`,
     link: 'https://google.com',
     image: 'project3.png'
   }
