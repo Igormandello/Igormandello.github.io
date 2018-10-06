@@ -120,7 +120,19 @@ class App extends Component {
         </Intro>
         <section id="about" className="about">
           <h2>Sobre Mim</h2>
-          <AboutMeSection image="image.png">
+          <AboutMeSection image="igor.jpg">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
+              delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 
+              culpa totam voluptatum voluptate maiores voluptatem nemo nihil 
+              quod neque nostrum expedita nam?
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
+              delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 
+              culpa totam voluptatum voluptate maiores voluptatem nemo nihil 
+              quod neque nostrum expedita nam?
+            </p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
               delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 
@@ -134,7 +146,7 @@ class App extends Component {
               quod neque nostrum expedita nam?
             </p>
           </AboutMeSection>
-          <AboutMeSection image="image.png" reverse>
+          <AboutMeSection image="igor2.jpg" reverse>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
               delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 

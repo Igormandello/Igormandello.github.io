@@ -2,13 +2,21 @@
 
 .aboutMeSection {
   & > div {
-    img {
-      width: 100%;
-      max-height: 100%;
+    .parallax-wrapper {
       border: 2px solid $blue-1;
+      width: 100%;
+      height: 450px;
       border-radius: 10px;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+
+      img {
+        width: 150%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
+    
 
     &:last-child {
       display: flex;
