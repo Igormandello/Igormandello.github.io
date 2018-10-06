@@ -19,8 +19,10 @@ class App extends Component {
     ScrollManager.offsetTop = 0.3;
 
     let header = document.querySelector('header');
+    let floating = document.querySelector('.floating-button');
     this.sm.addReturnableSection('.intro', (activated) => {
       header.classList.toggle('inverse');
+      floating.classList.toggle('active');
     });
 
     this.sm.addSection('.contact > .row > .col:last-child', () => {
@@ -36,6 +38,9 @@ class App extends Component {
 
     this.circles = document.querySelectorAll('.pagination .circle');
     this.circles.forEach((circle, i) => circle.addEventListener('click', () => {
+      clearTimeout(this.timeout);
+      this.slideNext();
+
       this.setState((prev) => {
         this.circles[prev.actualProject].classList.remove('active');
         this.circles[i].classList.add('active');
@@ -122,42 +127,34 @@ class App extends Component {
           <h2>Sobre Mim</h2>
           <AboutMeSection image="igor.jpg">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
-              delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 
-              culpa totam voluptatum voluptate maiores voluptatem nemo nihil 
-              quod neque nostrum expedita nam?
+              Oi! Meu nome é Igor Mandello, tenho 17 anos, minha cor preferida é 
+              azul real, prefiro frio do que calor e eu gosto muito de limão.
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
-              delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 
-              culpa totam voluptatum voluptate maiores voluptatem nemo nihil 
-              quod neque nostrum expedita nam?
+              Inicialmente planejei seguir para a área da química, mas no meio do 
+              caminho acabei encontrando a <b>programação</b>, acabei me apaixonando
+              por essa área e nunca mais saí dela.
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
-              delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 
-              culpa totam voluptatum voluptate maiores voluptatem nemo nihil 
-              quod neque nostrum expedita nam?
+              Aos meus 9 anos comecei a estudar <b>percussão</b>, outra grande paixão
+              minha, mas aos 14 tive que parar com as aulas por causa dos estudos.
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
-              delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 
-              culpa totam voluptatum voluptate maiores voluptatem nemo nihil 
-              quod neque nostrum expedita nam?
+              Assim que eu pude, me juntei com alguns amigos e nós formamos a <b>The Michaels</b>,
+              e até hoje nós fazemos covers de bandas como Arctic Monkeys para os saraus da escola
             </p>
           </AboutMeSection>
           <AboutMeSection image="igor2.jpg" reverse>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
-              delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 
-              culpa totam voluptatum voluptate maiores voluptatem nemo nihil 
-              quod neque nostrum expedita nam?
+              Entrei no <a href="https://cotuca.unicamp.br">Cotuca</a> (Colégio Técnico de Campinas)
+              em 2016 e passei os melhores (e mais corridos) anos da minha vida la, conheci
+              grandes amigos e evolui muito, tanto pessoalmente quanto profissionalmente.
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
-              delectus earum quaerat? Doloribus, obcaecati quo illo mollitia 
-              culpa totam voluptatum voluptate maiores voluptatem nemo nihil 
-              quod neque nostrum expedita nam?
+              Trabalho por lá como Monitor da área de Informática desde 2017,
+              e eu percebi que ensinar era a melhor maneira de aprender coisas
+              novas, pois eu nunca poderia esquecer o que já havia aprendido,
+              já que sempre teria alguém com dúvida naquilo.
             </p>
           </AboutMeSection>
         </section>
@@ -208,6 +205,13 @@ class App extends Component {
         <footer>
           Igor Mandello © 2018
         </footer>
+
+        <a className="floating-button" href="#intro">
+          <svg xmlns="http://www.w3.org/2000/svg">
+              <line x1="0" y1="100%" x2="50%" y2="0"/>
+              <line x1="50%" y1="0" x2="100%" y2="100%"/>
+          </svg>
+        </a>
       </div>
     );
   }
@@ -224,10 +228,12 @@ const projects = [
     image: 'spotted.png'
   }, {
     name: 'Vocare',
-    desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
-      delectus earum quaerat? Doloribus, obcaecati quo illo mollitia culpa 
-      totam voluptatum voluptate maiores voluptatem nemo nihil quod neque 
-      nostrum expedita nam?`,
+    desc: `O Vocare é uma plataforma facilitadora da decisão profissional de
+      adolescentes, ela cria um ambiente de discussão sem fronteiras entre os
+      jovens e pessoas que já atuam no mercado de trabalho ou que estão com as
+      mesmas dúvidas. Além disso, ela possui seções de conhecimento de profissões,
+      que explicam melhor sobre cada curso, onde pode ser encontrado e diversas
+      outras coisas!`,
     link: 'https://github.com/Igormandello/vocare',
     image: 'vocare.png'
   }, {

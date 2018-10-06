@@ -1,8 +1,11 @@
 @import './consts';
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-$header-height: 60px;
-$logo-size: 100px;
+$header-height: 50px;
+$logo-size: ($header-height * 2) - 20px;
+$floating-margin: 40px;
+$floating-size: 60px;
+$floating-margin-sm: 20px;
 
 html {
   overflow-x: hidden;
@@ -64,6 +67,31 @@ a.button {
     img {
       filter: saturate(0) grayscale(1) brightness(3);
     }
+  }
+}
+
+a.floating-button {
+  position: fixed;
+  right: $floating-margin;
+  bottom: $floating-margin;
+  height: $floating-size;
+  width: $floating-size;
+  background-color: $blue-1;
+  border-radius: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  padding: $floating-size / 3 $floating-size / 4;
+  transform: translateY($floating-margin + $floating-size + 20px);
+  transition: transform 0.4s;
+
+  svg {
+    width: $floating-size / 2;
+    height: $floating-size / 3;
+    stroke: white;
+    stroke-width: 2px;
+  }
+
+  &.active {
+    transform: none;
   }
 }
 
@@ -129,10 +157,16 @@ header {
     border-radius: 100%;
     transition: transform 0.4s ease 0.4s, height 0.4s, width 0.4s, border-bottom 0.4s;
 
-    img {
+    a {
       width: $logo-size;
       height: $logo-size;
       transition: height 0.4s, width 0.4s;
+
+      img {
+        width: 100%;
+        height: 100%;
+        transition: inherit;
+      }
     }
   }
 
@@ -158,7 +192,7 @@ header {
       transform: translateX(10px);
       border: none;
   
-      img {
+      a {
         width: $header-height - 20px;
         height: $header-height - 20px;
       }
@@ -205,12 +239,16 @@ section.intro {
 }
 
 section:not(.intro) {
-  padding: 40px 15%;
+  padding: 60px 15%;
   background-color: white;
 
   &:nth-child(even) {
     background-color: #fafafa;
   }
+}
+
+section.projects p {
+  text-indent: 2rem;
 }
 
 section.contact {
@@ -253,6 +291,12 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
+  a.floating-button {
+    right: $floating-margin-sm;
+    bottom: $floating-margin-sm;
+    transform: translateY($floating-margin + $floating-size + 20px);
+  }
+
   header nav {
     display: none;
   }

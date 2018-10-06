@@ -8,7 +8,7 @@ class PopMedia extends Component {
 
   render() {
     return (
-      <div ref="media" className={'popMedia col s12' + (this.props.right ? ' right' : '')}>
+      <div ref="media" className={'popMedia col s12' + (this.props.right && window.innerWidth > 768 ? ' right' : '')}>
         <div onClick={this.toggleMedia}>
           <img src={require('./assets/' + this.props.media.toLowerCase() + '.svg')} alt="media"/>
         </div>
