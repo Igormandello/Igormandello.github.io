@@ -3,11 +3,11 @@ import React from 'react';
 function Input(props) {
   let input;
   if (props.type === 'text' || !props.type)
-    input = <input type="text" id={props.id}/>;
+    input = <input type="text" name={props.id} id={props.id}/>;
   else if (props.type !== 'textarea')
-    input = <input type={props.type} id={props.id}/>
+    input = <input type={props.type} name={props.id} id={props.id}/>
   else
-    input = <textarea id={props.id} className="materialize-textarea" />
+    input = <textarea id={props.id} name={props.id} className="materialize-textarea" />
 
   return (
     <div className={'input-field' + (props.className ? ' ' + props.className : '')}>

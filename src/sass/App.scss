@@ -41,10 +41,12 @@ p {
   font-size: 1.2rem;
 }
 
-a.button {
+.button {
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
+  outline: none;
+  background-color: transparent;
   border: 3px solid $blue-1;
   border-radius: 25px;
   height: 50px;

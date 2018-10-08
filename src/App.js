@@ -214,16 +214,14 @@ class App extends Component {
         <section id="contact" className="contact">
           <h2>Contato</h2>
           <div className="row">
-            <div className="col l6 m12">
+            <form className="col l6 m12" action="https://formspree.io/igormandello@gmail.com" method="POST">
               <Input label="Nome" className="col s12 m6" id="name"/>
               <Input label="Sobrenome" className="col s12 m6" id="lastname"/>
               <Input label="E-mail" type="email" className="col s12" id="email"/>
               <Input label="Mensagem" type="textarea" className="col s12" id="message"/>
 
-              <a className="button">
-                Enviar
-              </a>
-            </div>
+              <input type="submit" value="Enviar" className="button"/>
+            </form>
             <div className="col l6 s12">
               <PopMedia ref="pop0" {...socialMedias.github}/>
               <PopMedia ref="pop1" {...socialMedias.linkedin} right/>
