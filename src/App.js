@@ -197,14 +197,20 @@ class App extends Component {
               <p>
                 {projects[this.state.actualProject].desc}
               </p>
-              <a className="button" href={projects[this.state.actualProject].link} target="_blank">
-                <img src={require('./components/assets/github.svg')} alt=""/>
-                Veja mais no GitHub
-              </a>
-              <a className="button" href={projects[this.state.actualProject].site} target="_blank">
-                <img src={require('./components/assets/github.svg')} alt=""/>
-                Veja o site do projeto
-              </a>
+              {
+                projects[this.state.actualProject].link &&
+                <a className="button" href={projects[this.state.actualProject].link} target="_blank">
+                  <img src={require('./components/assets/github.svg')} alt=""/>
+                  Veja mais no GitHub
+                </a>
+              }
+              {
+                projects[this.state.actualProject].site &&
+                <a className="button" href={projects[this.state.actualProject].site} target="_blank">
+                  <img src={require('./components/assets/github.svg')} alt=""/>
+                  Veja o site do projeto
+                </a>
+              }
             </div>
           </div>
           <div className="pagination">
@@ -283,17 +289,17 @@ const projects = [
 const socialMedias = {
   github: {
     media: 'GitHub',
-    link: '/Igormandello',
+    link: <a href="htps://github.com/Igormandello" target="_blank">/Igormandello</a>,
   },
 
   linkedin: {
     media: 'LinkedIn',
-    link: '/igormandello',
+    link: <a href="htps://linkedin.com/igormandello" target="_blank">/igormandello</a>,
   },
 
   facebook: {
     media: 'Facebook',
-    link: '/igor.mandello'
+    link: <a href="htps://facebook.com/igor.mandello" target="_blank">/igor.mandello</a>
   },
 
   email: {

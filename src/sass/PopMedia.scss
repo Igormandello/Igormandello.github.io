@@ -54,6 +54,10 @@ $image-size: 60px;
       font-size: (($image-size - 12px) / 2) - 8px;
       color: white;
 
+      a {
+        color: white
+      }
+
       &.title {
         font-weight: bold;
       }
