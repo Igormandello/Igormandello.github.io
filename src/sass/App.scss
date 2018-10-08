@@ -108,6 +108,7 @@ a.floating-button {
     margin: 0 4px;
     cursor: pointer;
     transition: background-color 0.4s, filter 0.4s;
+    user-select: none;
 
     &.before, &.after {
       background-image: url('../imgs/arrow.svg');

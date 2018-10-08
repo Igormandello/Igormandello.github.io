@@ -23,6 +23,11 @@ class App extends Component {
     this.sm.addReturnableSection('.intro', (activated) => {
       header.classList.toggle('inverse');
       floating.classList.toggle('active');
+
+      if (!activated)
+        this.refs.intro.start();
+      else
+        this.refs.intro.stop();
     });
 
     this.sm.addSection('.contact > .row > .col:last-child', () => {
@@ -139,7 +144,7 @@ class App extends Component {
             <a href="#contact">Contato</a>
           </nav>
         </header>
-        <Intro points={window.innerWidth > 768 ? 100 : 40} maxDist={120}>
+        <Intro ref="intro" points={window.innerWidth > 768 ? 100 : 40} maxDist={120}>
           <h1>Igor Mandello</h1>
           <a href="#about">
             <svg xmlns="http://www.w3.org/2000/svg">

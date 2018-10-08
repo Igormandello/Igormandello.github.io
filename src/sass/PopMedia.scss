@@ -20,6 +20,7 @@ $image-size: 60px;
     cursor: pointer;
     z-index: 2;
     transition: background-color 0.4s;
+    user-select: none;
 
     img {
       width: 100%;

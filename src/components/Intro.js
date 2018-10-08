@@ -69,6 +69,14 @@ class Intro extends Component {
     this.componentDidMount()
   }
 
+  start = () => {
+    this.app.ticker.start();
+  }
+
+  stop = () => {
+    this.app.ticker.stop();
+  }
+
   render() {
     return (
       <section ref="intro" id="intro" className="intro">
