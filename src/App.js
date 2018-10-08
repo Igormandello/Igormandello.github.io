@@ -201,6 +201,10 @@ class App extends Component {
                 <img src={require('./components/assets/github.svg')} alt=""/>
                 Veja mais no GitHub
               </a>
+              <a className="button" href={projects[this.state.actualProject].site} target="_blank">
+                <img src={require('./components/assets/github.svg')} alt=""/>
+                Veja o site do projeto
+              </a>
             </div>
           </div>
           <div className="pagination">
@@ -253,6 +257,7 @@ const projects = [
       com o Facebook e o Twitter, e as mensagens, quando aprovadas por algum
       administrador, são automaticamente postadas nessas duas plataformas.`,
     link: 'https://github.com/Igormandello/spotted-cotuca',
+    site: 'https://newspottedctc.appspot.com',
     image: 'spotted.png'
   }, {
     name: 'Vocare',
@@ -263,15 +268,15 @@ const projects = [
       que explicam melhor sobre cada curso, onde pode ser encontrado e diversas
       outras coisas!`,
     link: 'https://github.com/Igormandello/vocare',
+    site: 'https://Igormandello.github.io/vocare',
     image: 'vocare.png'
   }, {
-    name: 'Sine',
-    desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas 
-      delectus earum quaerat? Doloribus, obcaecati quo illo mollitia culpa 
-      totam voluptatum voluptate maiores voluptatem nemo nihil quod neque 
-      nostrum expedita nam?`,
-    link: 'https://google.com',
-    image: 'project3.png'
+    name: 'American Pedras Administração',
+    desc: `Projeto focado para a empresa do meu pai, ajuda na administração com
+      uma interface amigável e de fácil uso, inicialmente feita em C# (Windows Forms)
+      e posteriormente transferida para Electron. Possui métodos para o gerenciamento
+      dos materiais, assim como criação de orçamentos, conversão para PDF e impressão.`,
+    image: 'apadmin.png'
   }
 ]
 

@@ -250,8 +250,15 @@ section:not(.intro) {
   }
 }
 
-section.projects p {
-  text-indent: 2rem;
+section.projects {
+  .button {
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    text-indent: 2rem;
+  }
 }
 
 section.contact {
