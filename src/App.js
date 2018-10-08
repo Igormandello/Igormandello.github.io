@@ -52,6 +52,11 @@ class App extends Component {
       });
     }));
 
+    let ageDate = new Date(Date.now() - new Date(2001, 1, 17).getTime());
+    let age = Math.abs(ageDate.getUTCFullYear() - 1970);
+    for (let i = 1; i < 5; i++)
+      setTimeout(this.changeAgeText.bind(this, i - 1, age), i * 1000);
+
     this.slideNext();
   }
 
@@ -99,6 +104,26 @@ class App extends Component {
     }, 5000);
   }
 
+  changeAgeText(i, realAge) {
+    let fakeAge = 0;
+
+    switch (i) {
+      case 0: fakeAge = Math.floor(Math.random() * (realAge - 1) + 1);
+        break;
+
+      case 1: fakeAge = Math.floor(Math.random() * (70 - realAge) + realAge + 30);
+        break;
+
+      case 2: fakeAge = Math.floor(Math.random() * (70 - 2 * realAge) + realAge);
+        break;
+
+      default: fakeAge = realAge;
+        break;
+    }
+
+    this.refs.age.innerText = fakeAge;
+  }
+
   render() {
     return (
       <div>
@@ -127,7 +152,7 @@ class App extends Component {
           <h2>Sobre Mim</h2>
           <AboutMeSection image="igor.jpg">
             <p>
-              Oi! Meu nome é Igor Mandello, tenho 17 anos, minha cor preferida é 
+              Oi! Meu nome é <b>Igor Mandello</b>, tenho <b ref="age">17</b> anos, minha cor preferida é 
               azul real, prefiro frio do que calor e eu gosto muito de limão.
             </p>
             <p>
@@ -146,7 +171,7 @@ class App extends Component {
           </AboutMeSection>
           <AboutMeSection image="igor2.jpg" reverse>
             <p>
-              Entrei no <a href="https://cotuca.unicamp.br">Cotuca</a> (Colégio Técnico de Campinas)
+              Entrei no <a href="http://cotuca.unicamp.br/cotuca/">Cotuca</a> (Colégio Técnico de Campinas)
               em 2016 e passei os melhores (e mais corridos) anos da minha vida la, conheci
               grandes amigos e evolui muito, tanto pessoalmente quanto profissionalmente.
             </p>
