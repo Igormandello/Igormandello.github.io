@@ -207,7 +207,7 @@ class App extends Component {
               {
                 projects[this.state.actualProject].site &&
                 <a className="button" href={projects[this.state.actualProject].site} target="_blank">
-                  <img src={require('./components/assets/github.svg')} alt=""/>
+                  <img src={require('./components/assets/site.svg')} alt=""/>
                   Veja o site do projeto
                 </a>
               }

@@ -41,6 +41,11 @@ p {
   font-size: 1.2rem;
 }
 
+a, input[type=submit]:focus {
+  outline: none;
+  user-select: none;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
